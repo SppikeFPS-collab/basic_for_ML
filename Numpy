@@ -17,3 +17,22 @@ np.ones（5）*5        # [4. 4. 4. 4. 4.]
 np.arange(0, 10, 2)   # [0 2 4 6 8]        —— 类似 range，但返回 ndarray
 np.linspace(0, 1, 5)  # [0.  0.25 0.5 0.75 1.] —— 等间距取点
 np.random.randn(5)    # 5 个标准正态分布随机数
+
+#3、数组的索引和切片
+#补充一下，切片操作用的是[]！！！！！
+matrix = np.array([[1,  2,  3,  4],
+                   [5,  6,  7,  8],
+                   [9, 10, 11, 12]])
+print(matrix[0, 0])     # 1             —— 第 0 行第 0 列
+print(matrix[0, :])     # [1 2 3 4]     —— 第 0 行所有列
+print(matrix[:, 1])     # [2 6 10]      —— 第 1 列所有行
+print(matrix[:2, 1:3])  # [[2 3] [6 7]] —— 前 2 行、第 1~2 列
+# === 布尔索引（重要！这是 ML 中筛选数据的高频操作） ===
+arr = np.array([3, 1, 4, 1, 5, 9, 2])
+mask = arr > 3                 # [False False  True False  True  True False]
+print(arr[mask])               # [4 5 9]  —— 只保留为 True 的元素
+print(arr[arr > 3])            # [4 5 9]  —— 一步到位
+# === 花式索引（fancy indexing） ===
+print(arr[[0, 2, 5]])          # [3 4 9]  —— 取第 0、2、5 号位置
+
+#4、向量化运算
