@@ -1,1 +1,19 @@
+Step1 7.21-7，22
+#1、Numpy中的ndarray，指的是N dimensional array，N维数组
 import numpy as np
+a= np.array([1,2,3,4,5])
+print(type(a))    # <class 'numpy.ndarray'>
+print(a.dtype)    # int32 (或 int64，取决于系统)
+#dtype是data type的意思,int32代表整数型
+
+#此时此刻 a就是一维数组了
+
+#2、快速创建array
+np.zeros(5)           # [0. 0. 0. 0. 0.]   —— 全零
+np.ones(5)            # [1. 1. 1. 1. 1.]   —— 全一
+np.ones（5）*5        # [4. 4. 4. 4. 4.]
+#只要zero和ones这两个方式，想建议全为其他整数的话，就要用
+#zeros以及ones默认返回float64
+np.arange(0, 10, 2)   # [0 2 4 6 8]        —— 类似 range，但返回 ndarray
+np.linspace(0, 1, 5)  # [0.  0.25 0.5 0.75 1.] —— 等间距取点
+np.random.randn(5)    # 5 个标准正态分布随机数
